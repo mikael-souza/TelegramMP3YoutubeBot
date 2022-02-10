@@ -1,10 +1,11 @@
 from bot import telegram_chatbot
 from flask import Flask, request, jsonify
+import streamlit as st
 
 app = Flask(__name__)
 app.debug = True
 
-bot = telegram_chatbot("config.cfg")
+bot = telegram_chatbot(st.secrets["token"])
 
 @app.route('/webhook', methods=['POST'])
 def make_reply(msg):
