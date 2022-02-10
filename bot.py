@@ -4,6 +4,7 @@ import json
 import pafy
 import os
 import configparser as cfg
+import streamlit as st
 
 
 class telegram_chatbot():
@@ -42,4 +43,4 @@ class telegram_chatbot():
     def read_token_from_config_file(self, config):
         parser = cfg.ConfigParser()
         parser.read(config)
-        return parser.get('creds', 'token')
+        return st.secrets["token"]
